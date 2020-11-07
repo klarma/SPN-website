@@ -1,0 +1,3054 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Saira Condensed", arial, sans-serif;
+    font-size: 10px;
+    color: #333;
+}
+
+section.home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+section.home>* {
+    position: absolute;
+}
+
+/* jeżeli nav ma być na podstronach identyczne twórz tą samą strukturę w html, żeby było optymalnie przy media */
+div.burger {
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 40px;
+    transition: .2s linear;
+    z-index: 1;
+}
+
+.burger:hover {
+    cursor: pointer;
+}
+
+.burger:hover span {
+    background-color: #888;
+}
+
+.burger.active {
+    transform: rotate(-90deg);
+}
+
+.burger span {
+    position: absolute;
+    width: 100%;
+    height: .7rem;
+    background-color: #666;
+    left: 0;
+    transition: top .2s .2s, transform .2s .4s, opacity .1s .3s;
+}
+
+.burger span:nth-child(1) {
+    top: 0;
+}
+
+.burger.active span:nth-child(1) {
+    top: calc(50% - 5px);
+    opacity: 0;
+
+}
+
+.burger span:nth-child(2) {
+    top: calc(50% - 5px);
+
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger span:nth-child(3) {
+    top: calc(100% - 10px);
+}
+
+.burger.active span:nth-child(3) {
+    top: calc(50% - 5px);
+    opacity: 0;
+}
+
+section.home aside {
+    top: -8vh;
+    left: 0;
+    right: 0;
+    height: 8vh;
+    background-color: #fff;
+    transition: .3s .2s linear;
+    z-index: 2;
+}
+
+aside nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: #666;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    width: 80%;
+    list-style-type: none;
+}
+
+nav li {
+    transition: .2s;
+}
+
+aside nav a {
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 0 5px;
+    font-size: 1.8rem;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+aside nav a:hover {
+    color: #eee;
+}
+
+aside nav li:hover {
+    border-bottom: 2px solid rgb(255, 102, 0);
+}
+
+aside nav li:nth-child(6):hover {
+    border-bottom: none;
+}
+
+aside nav li:nth-child(6) a {
+    padding: 0 30px;
+    border: 3px solid rgb(255, 102, 0);
+    margin-left: 100px;
+    margin-right: 50px;
+    color: #eee;
+    letter-spacing: 2px;
+    transition: .2s;
+}
+
+aside nav li:nth-child(6):hover a {
+    color: #eee;
+    border: 3px solid rgb(255, 102, 0);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.burger.active+aside {
+    top: 0;
+}
+
+section.home div.banner {
+    top: 30vh;
+    left: 0;
+    width: 100%;
+    height: 56vh;
+    background-image: url("../img/SPN\ banner\ .jpg");
+    background-repeat: no-repeat;
+    background-position: -50%;
+    background-size: cover;
+    overflow: hidden;
+    animation: .6s banner 6s linear both;
+    transition: .5s linear;
+    z-index: 1;
+}
+
+@keyframes banner {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+div.banner div.lineTop {
+    position: absolute;
+    right: -100%;
+    top: 0%;
+    width: 100%;
+    height: 1.5%;
+    background-color: rgb(255, 102, 0);
+    animation: 2.5s showLine 5.5s ease-in both;
+}
+
+@keyframes showLine {
+    100% {
+        right: 0;
+    }
+}
+
+div.banner div.lineBotton {
+    position: absolute;
+    left: -100%;
+    bottom: 0%;
+    width: 100%;
+    height: 1.5%;
+    background-color: rgb(255, 102, 0);
+    animation: 2.5s show 5.5s ease-in both;
+}
+
+@keyframes show {
+    100% {
+        left: 0;
+    }
+}
+
+.burger.active~.banner {
+    top: 40vh;
+    height: 46vh;
+    background-position: center;
+}
+
+section.home>div.logo {
+    top: 0;
+    left: 0;
+    height: 60vh;
+    width: 100%;
+    transition: .5s linear;
+}
+
+section.home>div.logo a {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 30vh;
+    width: 50%;
+    background-image: url(../img/SPNlogo2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: up .6s 6s linear both;
+    /* z-index: 1; będzie klikalne jak logo będzie png transparent - zmiana tu lun niżej*/
+}
+
+.burger.active~div.logo {
+    top: 10vh;
+}
+
+@keyframes up {
+    100% {
+        top: 15vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+section.business div.sign {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 60vh;
+}
+
+div.sign h1 {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #111;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    overflow: hidden;
+}
+
+div.sign h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-left: 3px solid #fff;
+    animation: cursor .6s 8 linear, typing 5s steps(26, start);
+}
+
+@keyframes cursor {
+    0% {
+        border-color: transparent;
+    }
+
+    10% {
+        border-color: transparent;
+    }
+
+    25% {
+        border-color: #111;
+    }
+
+    75% {
+        border-color: #111;
+    }
+
+    90% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing {
+    70% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+section.business div.options {
+    position: relative;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+div.options>* {
+    position: absolute;
+    top: 27vh;
+    width: 33vw;
+    height: 10vh;
+    overflow: hidden;
+}
+
+div.shipping {
+    left: 5vw;
+}
+
+div.distribution {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+div.ls {
+    right: 5vw;
+}
+
+div>a {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 100%;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    animation: move 2s 4s linear both;
+}
+
+div.distribution a {
+    animation-delay: 4.6s;
+}
+
+div.ls a {
+    animation-delay: 5.2s;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-100%, -50%);
+    }
+
+    40% {
+        transform: translate(-100%, -50%);
+    }
+
+    60% {
+        transform: translate(0, -50%);
+    }
+
+    100% {
+        transform: translate(0, -50%);
+    }
+}
+
+/* @media (orientation: landscape) and (max-width: 1440px) { */
+@media (max-width: 1440px) {
+    aside nav ul {
+        width: 100%;
+    }
+
+    aside nav a {
+        display: inline-block;
+        padding: 5px 20px;
+        margin: 0 5px;
+        font-size: 1.5rem;
+    }
+
+    section.home div.banner {
+        background-position: 0;
+        background-size: cover;
+    }
+
+    section.business div.options {
+        font-size: 2.5rem;
+    }
+
+    section.home>div.logo a {
+        background-image: url(../img/SPNlogo50.png);
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1170px) {
+    aside nav a {
+        padding: 5px 5px;
+        font-size: 1.4rem;
+    }
+
+    aside nav li:nth-child(6) a {
+        margin-left: 50px;
+    }
+
+    section.home div.banner {
+        top: 30vh;
+        height: 60vh;
+        background-position: 5%;
+    }
+
+    /* section.home div.banner {
+        height: 50vh;
+        background-position: 5%;
+    } */
+
+    section.business div.options {
+        font-size: 2rem;
+    }
+}
+
+
+/* 
+@media (max-width: 870px) and (min-height: 600px) {
+@media (orientation: portrait) and (max-width: 870px) {
+    aside nav a {
+        padding: 5px 5px;
+        font-size: 1rem;
+    }
+
+    aside nav li:nth-child(6) a {
+        margin-left: 50px;
+    }
+
+    section.home div.banner {
+        height: 50vh;
+        background-position: 5%;
+    }
+
+    section.business div.options {
+        font-size: 2rem;
+    }
+} */
+
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    section.home aside {
+        top: 0;
+        height: 100vh;
+        left: -40vw;
+        width: 40vw;
+    }
+
+    aside nav {
+        height: 100%;
+        justify-content: center;
+    }
+
+    aside nav ul {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 7vh 0;
+    }
+
+    nav li {
+        position: relative;
+        height: 16%;
+        width: 100%;
+        text-align: center;
+    }
+
+    aside nav li:hover {
+        border-bottom: none;
+    }
+
+    aside nav a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    aside nav li:nth-child(6) {
+        text-align: center;
+        width: 60%;
+    }
+
+    aside nav li:nth-child(1) a,
+    aside nav li:nth-child(2) a,
+    aside nav li:nth-child(3) a,
+    aside nav li:nth-child(4) a,
+    aside nav li:nth-child(5) a {
+        left: -100%;
+        transition: .7s linear;
+    }
+
+    aside nav li:nth-child(2) a {
+        transition-delay: .3s;
+    }
+
+    aside nav li:nth-child(3) a {
+        transition-delay: .6s;
+    }
+
+    aside nav li:nth-child(4) a {
+        padding: 5px 3px;
+        font-size: 1.4rem;
+        transition-delay: .9s;
+    }
+
+    aside nav li:nth-child(5) a {
+        transition-delay: 1.2s;
+    }
+
+    aside nav li:nth-child(6) a {
+        padding: 10px 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        letter-spacing: 3px;
+    }
+
+    .burger.active+aside {
+        left: 0;
+    }
+
+    .burger.active+aside nav li:nth-child(1) a,
+    .burger.active+aside nav li:nth-child(2) a,
+    .burger.active+aside nav li:nth-child(3) a,
+    .burger.active+aside nav li:nth-child(4) a,
+    .burger.active+aside nav li:nth-child(5) a {
+        left: 0%;
+    }
+
+    section.home div.banner {
+        top: 30vh;
+        height: 50vh;
+        background-position: 10%;
+    }
+
+    section.home>div.logo a {
+        background-image: url(../img/SPNlogo35.png);
+    }
+
+    div.sign h1 {
+        font-size: 2.8rem;
+    }
+
+    section.business div.options {
+        font-size: 1.6rem;
+    }
+
+    section.business div.options>* {
+        top: 24vh;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 823px) {
+    section.home div.banner {
+        height: 50vh;
+        background-position: 10%;
+    }
+}
+
+
+@media (orientation: landscape) and (max-width: 731px) {
+
+    section.business div.options {
+        font-size: 1.4rem;
+    }
+}
+
+
+@media (orientation: landscape) and (max-width: 700px) {
+    section.home div.banner {
+        top: 24vh;
+        height: 47vh;
+        background-position: 10%;
+    }
+
+    section.home>div.logo a {
+        top: 0;
+        background-image: url(../img/SPNlogo10.png);
+    }
+
+    div.sign h1 {
+        font-size: 2rem;
+    }
+
+    section.business div.options>* {
+        top: 13vh;
+    }
+}
+
+/* przy desktop first w też ekran zaczyna być traktowany jako portrait */
+@media (orientation: landscape) and (max-width: 667px) {
+
+    section.home div.banner {
+        top: 32vh;
+        height: 50vh;
+    }
+
+    .burger.active~.banner {
+        top: 30vh;
+        height: 50vh;
+        background-position: center;
+    }
+
+    section.home>div.logo a {
+        top: 0;
+        background-image: url(../img/SPNlogo35.png);
+    }
+
+    .burger.active~div.logo {
+        top: 0;
+    }
+
+    div.sign h1 {
+        width: 55%;
+        top: 90%;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    section.business div.options {
+        font-size: 1.4rem;
+    }
+
+    section.business div.options>* {
+        top: 24vh;
+    }
+
+    div.shipping {
+        left: 0vw;
+        width: 30vw;
+    }
+
+    div.distribution {
+        width: 40vw;
+    }
+
+    div.ls {
+        right: 0vw;
+        width: 30vw;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 640px) {
+    section.home aside {
+        left: -45vw;
+        width: 45vw;
+    }
+
+    section.home>div.logo a {
+        width: 80%;
+    }
+}
+
+
+@media (orientation: landscape) and (max-width: 533px) {
+    section.home>div.logo a {
+        top: 0;
+        background-image: url(../img/SPNlogo10.png);
+    }
+
+    section.business div.options {
+        font-size: 1.3rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 1024px) {
+    div.burger {
+        top: 30px;
+        right: 30px;
+    }
+
+    section.home aside {
+        top: 0;
+        height: 100vh;
+        left: -40vw;
+        width: 40vw;
+    }
+
+    aside nav {
+        height: 100%;
+        justify-content: center;
+    }
+
+    aside nav ul {
+        flex-direction: column;
+        height: 90%;
+        width: 100%;
+        padding: 7vh 0;
+    }
+
+    nav li {
+        position: relative;
+        height: 16%;
+        width: 100%;
+        text-align: center;
+    }
+
+    aside nav a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 2.5rem;
+        color: #fff;
+    }
+
+    aside nav li:nth-child(6) {
+        width: 60%;
+        margin-top: 5vh;
+        text-align: center;
+    }
+
+    aside nav li:nth-child(1) a,
+    aside nav li:nth-child(2) a,
+    aside nav li:nth-child(3) a,
+    aside nav li:nth-child(4) a,
+    aside nav li:nth-child(5) a {
+        left: -100%;
+        transition: .7s linear;
+    }
+
+    aside nav li:nth-child(2) a {
+        transition-delay: .3s;
+    }
+
+    aside nav li:nth-child(3) a {
+        transition-delay: .6s;
+    }
+
+    aside nav li:nth-child(4) a {
+        padding: 5px 3px;
+        font-size: 2.4rem;
+        transition-delay: .9s;
+    }
+
+    aside nav li:nth-child(5) a {
+        transition-delay: 1.2s;
+    }
+
+    aside nav li:nth-child(6) a {
+        padding: 10px 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        letter-spacing: 3px;
+    }
+
+    /* aside nav li:hover {
+        border-bottom: none;
+    } */
+
+    .burger.active+aside {
+        left: 0;
+    }
+
+    .burger.active+aside nav li:nth-child(1) a,
+    .burger.active+aside nav li:nth-child(2) a,
+    .burger.active+aside nav li:nth-child(3) a,
+    .burger.active+aside nav li:nth-child(4) a,
+    .burger.active+aside nav li:nth-child(5) a {
+        left: 0%;
+    }
+
+
+    section.home div.banner {
+        top: 35vh;
+        height: 40vh;
+        background-position: 2%;
+    }
+
+    .burger.active~.banner {
+        top: 35vh;
+        height: 40vh;
+        background-position: 2%;
+    }
+
+    .burger.active~div.logo {
+        top: 0;
+    }
+
+    section.home>div.logo a {
+        width: 70%;
+    }
+
+    div.sign h1 {
+        width: 55%;
+        top: 90%;
+        text-align: center;
+        font-size: 4.8rem;
+    }
+
+    section.business div.options {
+        font-size: 2.9rem;
+    }
+
+    div.options>* {
+        top: 20vh;
+    }
+
+    div.shipping {
+        left: 0vw;
+        width: 28vw;
+    }
+
+    div.distribution {
+        width: 44vw;
+    }
+
+    div.ls {
+        right: 0vw;
+        width: 28vw;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 768px) {
+    section.home aside {
+        top: 0;
+        height: 100vh;
+        left: -55vw;
+        width: 55vw;
+    }
+
+    section.home>div.logo a {
+        background-image: url(../img/SPNlogo50.png);
+    }
+
+    div.sign h1 {
+        width: 70%;
+        top: 90%;
+        text-align: center;
+        font-size: 4.5rem;
+    }
+
+}
+
+@media (orientation: portrait) and (max-width: 540px) {
+    section.home aside {
+        left: -70vw;
+        width: 70vw;
+    }
+
+    aside nav a {
+        font-size: 1.7rem;
+    }
+
+    aside nav li:nth-child(4) a {
+        font-size: 1.7rem;
+    }
+
+    section.home div.banner {
+        top: 35vh;
+        height: 25vh;
+    }
+
+    div.banner div.lineTop {
+        height: 2.5%;
+    }
+
+    div.banner div.lineBotton {
+        height: 2.5%;
+    }
+
+    .burger.active~.banner {
+        top: 35vh;
+        height: 20vh;
+    }
+
+    @keyframes up {
+        100% {
+            top: 20vh;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    section.home>div.logo a {
+        width: 80%;
+        background-image: url(../img/SPNlogo35.png);
+    }
+
+    div.sign h1 {
+        width: 100%;
+        top: 90%;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    section.business div.options {
+        font-size: 2rem;
+        font-weight: normal;
+    }
+
+    div.options>* {
+        position: absolute;
+        width: 100vw;
+        height: 10vh;
+        overflow: hidden;
+    }
+
+    div.shipping {
+        top: 6vh;
+        left: 0;
+    }
+
+    div.distribution {
+        top: 12vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    div.ls {
+        top: 18vh;
+        left: 0;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 360px) {
+    aside nav a {
+        font-size: 1.4rem;
+    }
+
+    aside nav li:nth-child(4) a {
+        font-size: 1.4rem;
+    }
+
+    section.home>div.logo a {
+        width: 90%;
+        background-image: url(../img/SPNlogo35.png);
+    }
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+    section.home aside {
+        left: -75vw;
+        width: 75vw;
+    }
+
+    aside nav a {
+        font-size: 1.4rem;
+    }
+
+    aside nav li:nth-child(4) a {
+        font-size: 1.4rem;
+    }
+
+    aside nav li:nth-child(6) a {
+        padding: 5px 15px;
+    }
+
+    section.home>div.logo a {
+        width: 100%;
+    }
+
+    div.sign h1 {
+        font-size: 2rem;
+    }
+
+    section.business div.options {
+        font-size: 1.8rem;
+    }
+
+}
+
+@media (orientation: portrait) and (max-width: 300px) {
+    section.home>div.logo a {
+        background-image: url(../img/SPNlogo30.png);
+    }
+}
+
+/* about.html */
+
+.wrapper {
+    max-width: 2400px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.wrapper main {
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+main>* {
+    position: absolute;
+}
+
+main div.burger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 40px;
+    transition: .2s linear;
+    z-index: 1;
+}
+
+.burger:hover {
+    cursor: pointer;
+}
+
+.burger:hover span {
+    background-color: #888;
+}
+
+.burger.active {
+    transform: rotate(-90deg);
+}
+
+.burger span {
+    position: absolute;
+    width: 100%;
+    height: .7rem;
+    background-color: #666;
+    left: 0;
+    transition: top .2s .2s, transform .2s .4s, opacity .1s .3s;
+}
+
+.burger span:nth-child(1) {
+    top: 0;
+}
+
+.burger.active span:nth-child(1) {
+    top: calc(50% - 5px);
+    opacity: 0;
+
+}
+
+.burger span:nth-child(2) {
+    top: calc(50% - 5px);
+
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger span:nth-child(3) {
+    top: calc(100% - 10px);
+}
+
+.burger.active span:nth-child(3) {
+    top: calc(50% - 5px);
+    opacity: 0;
+}
+
+main nav {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    background-color: #666;
+    color: #000;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    width: 90%;
+    list-style-type: none;
+}
+
+nav li {
+    transition: .2s;
+}
+
+main nav a {
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 0 5px;
+    font-size: 1.8rem;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+main nav a:hover {
+    color: #eee;
+}
+
+main nav li:hover {
+    border-bottom: 2px solid rgb(255, 102, 0);
+}
+
+main nav li:nth-child(6):hover {
+    border-bottom: none;
+}
+
+main nav li:nth-child(6) a {
+    padding: 0 30px;
+    border: 3px solid rgb(255, 102, 0);
+    margin-left: 100px;
+    margin-right: 50px;
+    color: #eee;
+    letter-spacing: 2px;
+    transition: .2s;
+}
+
+main nav li:nth-child(6):hover a {
+    color: #eee;
+    border: 3px solid rgb(255, 102, 0);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+main article {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 98vw;
+    padding: 0 5vw;
+    font-size: 2rem;
+    text-align: justify;
+    color: #444;
+}
+
+main article b {
+    margin-right: .7rem;
+}
+
+main article h1 {
+    margin: 5rem 0;
+    font-size: 2.5rem;
+}
+
+/* main article span:nth-of-type(2) {
+    selektor działa
+} */
+
+main div.logo {
+    position: absolute;
+    top: 8%;
+    left: 0%;
+    width: 60vw;
+    height: 35vh;
+    background-image: url(../img/SPNlogo.png);
+    background-repeat: no-repeat;
+}
+
+@media (orientation: landscape) and (max-width: 1600px) {
+    main div.logo {
+        left: 3%;
+        width: 90vw;
+        /* jak ustawiłam 100vw to strona się rozwaliła */
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1440px) {
+    main nav ul {
+        width: 100%;
+    }
+
+    main nav a {
+        display: inline-block;
+        padding: 5px 20px;
+        margin: 0 5px;
+        font-size: 1.6rem;
+    }
+
+    main article h1 {
+        margin: 3rem 0;
+    }
+
+
+}
+
+@media (orientation: landscape) and (max-width: 1200px) {
+
+    main nav {
+        top: 0;
+        height: 100vh;
+        left: -40vw;
+        width: 40vw;
+    }
+
+    main nav {
+        height: 100%;
+        justify-content: center;
+    }
+
+    main nav ul {
+        flex-direction: column;
+        height: 90%;
+        width: 100%;
+        padding: 7vh 0;
+    }
+
+    nav li {
+        position: relative;
+        height: 16%;
+        width: 100%;
+        text-align: center;
+    }
+
+    main nav li:hover {
+        border-bottom: none;
+    }
+
+    /* jeżeli robię zmianę, a nie ma efektu, może selektor powinien być bardziej precyzyjny */
+
+    main nav a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 2.5rem;
+        color: #fff;
+    }
+
+    main nav li:nth-child(6) {
+        width: 60%;
+        margin-top: 5vh;
+        text-align: center;
+    }
+
+    main nav li:nth-child(1) a,
+    main nav li:nth-child(2) a,
+    main nav li:nth-child(3) a,
+    main nav li:nth-child(4) a,
+    main nav li:nth-child(5) a {
+        left: -100%;
+        transition: .7s linear;
+    }
+
+    main nav li:nth-child(2) a {
+        transition-delay: .3s;
+    }
+
+    main nav li:nth-child(3) a {
+        transition-delay: .6s;
+    }
+
+    main nav li:nth-child(4) a {
+        padding: 5px 3px;
+        font-size: 2.4rem;
+        transition-delay: .9s;
+    }
+
+    main nav li:nth-child(5) a {
+        transition-delay: 1.2s;
+    }
+
+    main nav li:nth-child(6) a {
+        padding: 10px 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        letter-spacing: 3px;
+    }
+
+    .burger.active+nav {
+        left: 0;
+    }
+
+    .burger.active+nav li:nth-child(1) a,
+    .burger.active+nav li:nth-child(2) a,
+    .burger.active+nav li:nth-child(3) a,
+    .burger.active+nav li:nth-child(4) a,
+    .burger.active+nav li:nth-child(5) a {
+        left: 0;
+    }
+
+    main article {
+        top: 35%;
+    }
+
+    main article h1 {
+        margin: 1.5rem 0;
+    }
+
+    main div.logo {
+        background-image: url(../img/SPNlogo75.png);
+    }
+}
+
+@media (orientation: landscape) and (max-width: 965px) {
+
+    main article h1 {
+        margin: 1rem 0;
+    }
+
+}
+
+@media (orientation: landscape) and (max-width: 838px) {
+    .wrapper main {
+        height: 170vh;
+    }
+
+    main nav a {
+        font-size: 1.8rem;
+    }
+
+    main nav li:nth-child(4) a {
+        font-size: 1.8rem;
+    }
+
+    main div.logo {
+        background-image: url(../img/SPNlogo35.png);
+    }
+}
+
+@media (orientation: landscape) and (max-width: 823px) {
+
+    main nav a {
+        padding: 5px 0;
+        margin: 0 5px;
+        font-size: 1.1rem;
+    }
+
+    main nav li:nth-child(4) a {
+        font-size: 1.1rem;
+    }
+
+    main nav li:nth-child(6) a {
+        margin: 0;
+    }
+
+    main article h1 {
+        margin: 0;
+    }
+
+
+    main div.logo {
+        background-image: url(../img/SPNlogo50.png);
+    }
+}
+
+@media (max-width: 823px) and (max-height: 414px) {
+    .wrapper main {
+        height: 200vh;
+    }
+
+    main article {
+        top: 45%;
+        font-size: 1.9rem;
+    }
+
+    main article h1 {
+        margin: 5rem 0;
+        font-size: 2.3rem;
+    }
+
+    main div.logo {
+        background-image: url(../img/SPNlogo35.png);
+    }
+}
+
+@media (max-width: 720px) and (max-height: 540px) {
+
+    /* surface duo - musi być width zgodnie z zejściem krok po kroku, na końcu nadpisuje wcześniejsze */
+    .wrapper main {
+        height: 150vh;
+    }
+
+    main article {
+        top: 40%;
+    }
+
+    main article span {
+        font-size: 1.7rem;
+    }
+
+    main article span:nth-last-of-type(1) {
+        font-size: 1.7rem;
+    }
+
+    main article h1 {
+        margin: 3rem 0;
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 700px) and (max-height: 414px) {
+    .wrapper main {
+        height: 185vh;
+    }
+}
+
+@media (max-width: 667px) and (max-height: 414px) {
+
+    .wrapper main {
+        height: 200vh;
+    }
+
+    main article {
+        padding: 0 6vw 0 5vw;
+    }
+
+    main article span {
+        font-size: 1.6rem;
+    }
+
+    main article h1 {
+        margin: 4rem 0;
+        font-size: 2rem;
+    }
+
+    /* main article span:nth-last-of-type(1) {
+        text-align: center;
+    } */
+}
+
+@media (max-width: 653px) and (max-height: 280px) {
+
+    /* galaxy fold! */
+    .wrapper main {
+        height: 260vh;
+    }
+}
+
+@media (max-width: 640px) and (max-height: 414px) {
+    .wrapper main {
+        height: 200vh;
+    }
+
+    main article {
+        top: 40%;
+        padding: 0 7vw 0 5vw;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 568px) and (max-height: 320px) {
+    .wrapper main {
+        height: 170vh;
+    }
+
+    main article {
+        top: 43%;
+        padding: 0 7vw 0 4vw;
+    }
+
+    main article span {
+        font-size: 1.5rem;
+        /* w main article działało wszystko tylko nie foznt size, musiałąm tylko do fz bardziej sprecyzować selektor */
+    }
+
+    main article span:nth-last-of-type(1) {
+        font-size: 1.4rem;
+    }
+
+    main article h1 {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 533px) and (max-height: 414px) {
+    .wrapper main {
+        height: 190vh;
+    }
+
+    main article {
+        top: 40%;
+    }
+
+    main article span:nth-last-of-type(1) {
+        font-size: 1.35rem;
+    }
+
+    main article h1 {
+        margin: 3rem 0;
+        font-size: 1.6rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 1024px) {
+    main div.burger {
+        top: 30px;
+        right: 30px;
+    }
+
+    main nav {
+        top: 0;
+        height: 100vh;
+        left: -40vw;
+        width: 40vw;
+    }
+
+    main nav {
+        height: 100%;
+        justify-content: center;
+    }
+
+    main nav ul {
+        flex-direction: column;
+        height: 90%;
+        width: 100%;
+        padding: 7vh 0;
+    }
+
+    nav li {
+        position: relative;
+        height: 16%;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* main nav li:hover {
+        border-bottom: none;
+    } */
+
+    main nav a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 2.5rem;
+        color: #fff;
+    }
+
+    main nav li:nth-child(6) {
+        width: 60%;
+        margin-top: 5vh;
+        text-align: center;
+    }
+
+    main nav li:nth-child(1) a,
+    main nav li:nth-child(2) a,
+    main nav li:nth-child(3) a,
+    main nav li:nth-child(4) a,
+    main nav li:nth-child(5) a {
+        left: -100%;
+        transition: .7s linear;
+    }
+
+    main nav li:nth-child(2) a {
+        transition-delay: .3s;
+    }
+
+    main nav li:nth-child(3) a {
+        transition-delay: .6s;
+    }
+
+    main nav li:nth-child(4) a {
+        padding: 5px 3px;
+        font-size: 2.4rem;
+        transition-delay: .9s;
+    }
+
+
+    main nav li:nth-child(5) a {
+        transition-delay: 1.2s;
+    }
+
+    main nav li:nth-child(6) a {
+        padding: 10px 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        letter-spacing: 3px;
+    }
+
+    .burger.active+nav {
+        left: 0;
+    }
+
+    .burger.active+nav li:nth-child(1) a,
+    .burger.active+nav li:nth-child(2) a,
+    .burger.active+nav li:nth-child(3) a,
+    .burger.active+nav li:nth-child(4) a,
+    .burger.active+nav li:nth-child(5) a {
+        left: 0%;
+    }
+
+    main article {
+        top: 30%;
+        padding: 0 4vw 0 5vw;
+        font-size: 2.9rem;
+    }
+
+    main article h1 {
+        margin: 5rem 0;
+    }
+
+    main div.logo {
+        left: 5%;
+        width: 80vw;
+        background-image: url(../img/SPNlogo75.png);
+    }
+}
+
+@media (orientation: portrait) and (max-width: 768px) {
+    main nav {
+        top: 0;
+        height: 100vh;
+        left: -55vw;
+        width: 55vw;
+    }
+
+    main article {
+        top: 23%;
+        padding: 0 5vw 0 5vw;
+        font-size: 2.2rem;
+    }
+
+    main div.logo {
+        left: 3%;
+        width: 90vw;
+        background-image: url(../img/SPNlogo50.png);
+    }
+}
+
+@media (orientation: portrait) and (max-width: 540px) {
+
+    .wrapper main {
+        height: 125vh;
+    }
+
+    main nav {
+        left: -70vw;
+        width: 70vw;
+    }
+
+    main nav a {
+        font-size: 1.7rem;
+    }
+
+    main nav li:nth-child(4) a {
+        font-size: 1.7rem;
+    }
+
+    main article {
+        padding: 0 8vw 0 5vw;
+        font-size: 1.8rem;
+    }
+
+    main article h1 {
+        margin: 4rem 0;
+        font-size: 2rem;
+    }
+
+    main div.logo {
+        background-image: url(../img/SPNlogo35.png);
+        left: 4%;
+    }
+}
+
+/* jak coś się psuje, spójrz w konsolę, która rozdzielczość nadpisuje */
+
+@media (orientation: portrait) and (max-width: 414px) {
+    main article {
+        padding: 0 9vw 0 5vw;
+        font-size: 1.7rem;
+    }
+
+    main article h1 {
+        margin: 3rem 0;
+        font-size: 1.7rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 375px) {
+    main article {
+        top: 26%;
+        padding: 0 11vw 0 5vw;
+        font-size: 1.5rem;
+    }
+
+    main article h1 {
+        margin: 1.5rem 0;
+        font-size: 1.5rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 360px) {
+    .wrapper main {
+        height: 145vh;
+    }
+
+    main nav a {
+        font-size: 1.4rem;
+    }
+
+    main nav li:nth-child(4) a {
+        font-size: 1.4rem;
+    }
+
+    main article {
+        top: 28%;
+        padding: 0 11vw 0 5vw;
+        font-size: 1.5rem;
+    }
+
+    main article h1 {
+        margin: 2.5rem 0;
+        font-size: 1.7rem;
+    }
+
+    main div.logo {
+        top: 8%;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+    .wrapper main {
+        height: 190vh;
+    }
+
+    main nav {
+        left: -80vw;
+        width: 80vw;
+    }
+
+    main nav a {
+        font-size: 1.4rem;
+    }
+
+    main nav li:nth-child(4) a {
+        font-size: 1.4rem;
+    }
+
+    main nav li:nth-child(6) a {
+        padding: 5px 15px;
+    }
+
+    main article {
+        top: 24%;
+        font-size: 1.3rem;
+    }
+
+    main article b {
+        font-size: 1.6rem;
+    }
+
+    main article h1 {
+        margin: 1.5rem 0;
+        font-size: 1.4rem;
+    }
+
+    main div.logo {
+        background-image: url(../img/SPNlogo10.png);
+    }
+}
+
+@media (orientation: portrait) and (max-width: 300px) {
+    .wrapper main {
+        height: 130vh;
+    }
+
+    main nav a {
+        font-size: 1.3rem;
+    }
+
+    main nav li:nth-child(4) a {
+        font-size: 1.3rem;
+    }
+}
+
+.wrapper section {
+    height: 100vh;
+    background-color: #eee;
+}
+
+section.shipping,
+section.distribution,
+section.ls {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.shipping h1,
+.distribution h1,
+.ls h1 {
+    height: 20vh;
+    padding-top: 3vh;
+    line-height: 20vh;
+    font-size: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.shipping .wrap,
+.distribution .wrap,
+.ls .wrap {
+    position: relative;
+    height: 80vh;
+}
+
+.shipping .wrap>*,
+.distribution .wrap>*,
+.ls .wrap>* {
+    position: absolute;
+    top: 0%;
+    width: 75vh;
+    height: 75vh;
+}
+
+.shipping .img,
+.distribution .img,
+.ls .img {
+    left: 8%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale(0);
+}
+
+.shipping .img {
+    background-image: url(../img/increase.jpg);
+}
+
+.distribution .img {
+    background-image: url(../img/distribution.jpg);
+}
+
+.ls .img {
+    background-image: url(../img/road.jpg);
+}
+
+.shipping .img.active,
+.distribution .img.active,
+.ls .img.active {
+    animation: appear 1s linear both;
+}
+
+@keyframes appear {
+    100% {
+        transform: scale(1);
+    }
+}
+
+.shipping article,
+.distribution article,
+.ls article {
+    right: 8%;
+    padding: 3.5vh 4vh;
+    font-size: 2.3rem;
+    text-align: justify;
+    overflow: hidden;
+}
+
+.distribution article {
+    padding: 2vh 1vh;
+    overflow: hidden;
+}
+
+
+.ls article {
+    padding: 3.5vh .4vh;
+    /* font-size: 1.8rem; */
+    overflow: hidden;
+}
+
+.ls article button {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1% 3%;
+    text-align: center;
+    font-size: 1.6rem;
+    /* text-transform: uppercase; */
+}
+
+@media (orientation: landscape) and (max-width: 1500px) {
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 70vh;
+        height: 70vh;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        font-size: 2.1rem;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1400px) {
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 65vh;
+        height: 75vh;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        font-size: 1.9rem;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1366px) {
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 75vh;
+        height: 65vh;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 5%;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        right: 5%;
+        font-size: 1.7rem;
+    }
+}
+
+
+/* ipad pro  */
+@media (max-width: 1366px) and (min-height:1024px) {
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 6rem;
+    }
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 62vh;
+        height: 65vh;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 1%;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        right: 1%;
+        padding: 3.5vh 4vh;
+        font-size: 2.5rem;
+    }
+
+    .distribution article {
+        padding: 2vh 4vh;
+    }
+
+
+    .ls article {
+        padding: 2vh 4vh;
+    }
+
+    .ls article button {
+        bottom: 10%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1280px) {
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 55vh;
+        height: 65vh;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 3%;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        right: 3%;
+    }
+
+    .ls article button {
+        bottom: 4%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1135px) {
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 55vh;
+        height: 65vh;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 5%;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        right: 5%;
+        font-size: 1.7rem;
+    }
+}
+
+/* tutaj kończę desktop, po zrobieniu mobile sprawdź jak działa mniejsza wersja niżej niż 1000 */
+@media (orientation: landscape) and (max-width: 1000px) {
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 3rem;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 4%;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        right: 4%;
+        font-size: 1.8rem;
+    }
+
+    .distribution article {
+        padding: 2vh 1vh;
+    }
+
+    .ls article {
+        padding: 2vh 1vh;
+    }
+}
+
+@media (max-width: 838px) and (max-height:414px) {
+
+    .wrapper section {
+        height: 100vh;
+    }
+
+    .shipping .wrap>* {
+        height: 70vh;
+    }
+
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        height: 80vh;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        padding-top: 0;
+        font-size: 2.5rem;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 1%;
+    }
+
+    .shipping .img {
+        background-position: 70% center;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        right: 2%;
+        width: 140vh;
+        font-size: 1.5rem;
+    }
+
+    .distribution article {
+        padding: 2vh 4vh;
+    }
+
+
+    .ls article {
+        padding: 2vh 4vh;
+    }
+
+    .ls article button {
+        bottom: 10%;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 812px) and (max-height:414px) {
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 2%;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        right: 2%;
+        width: 150vh;
+    }
+
+    .ls article button {
+        bottom: 8%;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 798px) and (max-height:414px) {
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        width: 130vh;
+    }
+}
+
+@media (max-width: 736px) and (max-height:414px) {
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 50vh;
+    }
+
+    .shipping .img {
+        background-position: 60% center;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        width: 120vh;
+    }
+
+    .ls article button {
+        bottom: 3%;
+        font-size: 1.4rem;
+    }
+}
+
+/* duo */
+@media (max-width: 720px) and (min-height:540px) {
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 40vh;
+        height: 80vh;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        width: 80vh;
+        font-size: 1.7rem;
+    }
+
+    .ls article button {
+        bottom: 1.5%;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 700px) and (min-height:400px) {
+
+    .wrapper section {
+        height: 130vh;
+    }
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 55vh;
+        height: 110vh;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        width: 95vh;
+    }
+}
+
+@media (max-width: 667px) and (max-height:414px) {
+
+    .wrapper section {
+        height: 120vh;
+    }
+
+    .shipping .wrap>* {
+        height: 90vh;
+    }
+
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        height: 95vh;
+    }
+
+    .ls article button {
+        font-size: 1.3rem;
+    }
+}
+
+/* fold */
+@media (max-width: 653px) and (max-height:300px) {
+    .wrapper section {
+        height: 130vh;
+    }
+
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        height: 100vh;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 2rem;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        width: 170vh;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 640px) and (max-height:414px) {
+
+    .wrapper section {
+        height: 130vh;
+    }
+
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        height: 110vh;
+    }
+
+    .distribution article {
+        height: 100vh;
+    }
+
+
+    .ls article {
+        height: 100vh;
+    }
+
+    .ls article button {
+        /* bottom: 3%; */
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 568px) and (max-height:414px) {
+
+    .wrapper section {
+        height: 140vh;
+    }
+
+    section.shipping {
+        height: 125vh;
+    }
+
+    .shipping .wrap>* {
+        height: 100vh;
+    }
+
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        height: 120vh;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 2rem;
+    }
+
+    .shipping .img {
+        height: 95vh;
+    }
+
+    .distribution .img,
+    .ls .img {
+        height: 110vh;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        font-size: 1.4rem;
+    }
+
+    .distribution article {
+        height: 100vh;
+    }
+
+    .ls article {
+        height: 100vh;
+    }
+
+    .ls article button {
+        bottom: 10%;
+    }
+}
+
+@media (max-width: 533px) and (max-height:414px) {
+
+    .wrapper section {
+        height: 145vh;
+    }
+
+    section.shipping {
+        height: 125vh;
+    }
+
+    .shipping .wrap>* {
+        height: 100vh;
+    }
+
+    .shipping .img {
+        height: 100vh;
+    }
+
+    .distribution .img,
+    .ls .img {
+        height: 120vh;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        width: 108vh;
+    }
+
+    .shipping article {
+        padding: .5vh 3.5vh;
+    }
+
+    .ls article button {
+        bottom: 2%;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 1024px) {
+    .wrapper section {
+        height: 45vh;
+    }
+
+    .shipping .wrap>* {
+        width: 50vh;
+        height: 30vh;
+    }
+
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        position: absolute;
+        top: 0%;
+        width: 50vh;
+        height: 35vh;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 1%;
+        width: 25vh;
+        background-position: center;
+    }
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        right: 1%;
+        padding: 3.5vh 4vh;
+        font-size: 1.9rem;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        height: 10vh;
+        padding-top: .5vh;
+        line-height: 10vh;
+        font-size: 3rem;
+    }
+
+    .distribution article {
+        padding: 2vh 4vh;
+    }
+
+
+    .ls article {
+        padding: 2vh 4vh;
+    }
+
+    .ls article button {
+        bottom: 10%;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 768px) {
+    .wrapper section {
+        height: 56vh;
+    }
+
+    .shipping .wrap>* {
+        width: 50vh;
+        height: 40vh;
+    }
+
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        width: 50vh;
+        height: 45vh;
+    }
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        left: 1%;
+        width: 25vh;
+    }
+
+    /* .shipping .img{
+        background-position: 0 0;
+    } */
+
+    .shipping article,
+    .distribution article,
+    .ls article {
+        right: 1%;
+        font-size: 1.7rem;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        height: 10vh;
+        padding-top: .5vh;
+        line-height: 10vh;
+        font-size: 3rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 540px) {
+    .wrapper section {
+        height: 95vh;
+    }
+
+    .shipping .wrap>*,
+    .distribution .wrap>*,
+    .ls .wrap>* {
+        position: absolute;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 2.5rem;
+    }
+
+
+    .shipping .img,
+    .distribution .img,
+    .ls .img {
+        top: 0;
+        left: 15vw;
+        width: 70vw;
+        height: 30vh;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        top: 30vh;
+        left: 5vw;
+        height: 55vh;
+        width: 90vw;
+        font-size: 1.5rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 414px) {
+    .wrapper section {
+        height: 105vh;
+    }
+
+    section.shipping {
+        height: 100vh;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 2rem;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        height: 65vh;
+    }
+
+    .ls article button {
+        bottom: 5%;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 411px) {
+
+    section.shipping {
+        height: 95vh;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        left: 0vw;
+        width: 100vw;
+        font-size: 1.7rem;
+    }
+}
+
+
+@media (orientation: portrait) and (max-width: 375px) {
+    .wrapper section {
+        height: 110vh;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        width: 90vw;
+        padding: 3vh .5vh 2vh;
+        font-size: 1.5rem;
+    }
+
+    .ls article button {
+        bottom: 0;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 360px) {
+    .wrapper section {
+        height: 115vh;
+    }
+
+    section.shipping {
+        height: 105vh;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 1.8rem;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        height: 75vh;
+    }
+
+    .ls article button {
+        bottom: 4%;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+    .wrapper section {
+        height: 130vh;
+    }
+
+    section.shipping {
+        height: 115vh;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 1.6rem;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        left: 5vw;
+        height: 85vh;
+        width: 90vw;
+        padding: 3vh .5vh 2vh;
+        font-size: 1.4rem;
+    }
+
+    .ls article button {
+        bottom: 0;
+        font-size: 1.4rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 300px) {
+    .wrapper section {
+        height: 120vh;
+    }
+
+    section.shipping {
+        height: 108vh;
+    }
+
+    .shipping h1,
+    .distribution h1,
+    .ls h1 {
+        font-size: 1.4rem;
+    }
+
+    .shipping .wrap article,
+    .distribution .wrap article,
+    .ls .wrap article {
+        height: 85vh;
+    }
+
+    .ls article button {
+        bottom: 10%;
+    }
+}
+
+
+section.contact {
+    height: 95vh;
+    overflow: hidden;
+}
+
+section.contact div.image {
+    position: relative;
+    height: 45vh;
+    margin-top: 8vh;
+    background-image: url(../img/contact-us1.jpg);
+    background-repeat: no-repeat;
+    background-position: center 54%;
+    /* 50% 50%; - środek; 40% 40% - podwyższam obrazek i w lewo */
+    background-size: cover;
+    overflow: hidden;
+}
+
+div.image h1 {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    font-size: 8rem;
+    color: #222;
+    transform: scale(0);
+}
+
+div.image h1.active {
+    animation: appear 1s linear both;
+}
+
+section.contact div.info {
+    position: relative;
+    height: 41vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+div.info div {
+    position: absolute;
+    width: 30vw;
+    height: 30vh;
+}
+
+div.info .address {
+    top: 10%;
+    left: 15%;
+}
+
+div.info .phone {
+    top: 10%;
+    right: 15%;
+}
+
+div.info h1 {
+    font-size: 3.5rem;
+}
+
+div.info p {
+    font-size: 2.5rem;
+}
+
+section.contact div.line {
+    display: flex;
+    height: 1vh;
+}
+
+div.line div {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+}
+
+div.line span {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 102, 0);
+}
+
+div.lineLeft span {
+    right: -100%;
+}
+
+div.lineLeft span.active {
+    animation: 1s showLine 1s ease-in both;
+}
+
+div.lineRight span {
+    left: -100%;
+}
+
+div.lineRight span.active {
+    animation: 1s show 1s ease-in both;
+}
+
+footer {
+    width: 100vw;
+    height: 5vh;
+    background-color: #666;
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    div.image h1 {
+        font-size: 6.5rem;
+    }
+}
+
+@media (max-width: 1024px) and (max-height: 414px) {
+    div.image h1 {
+        font-size: 4rem;
+    }
+
+    div.info h1 {
+        font-size: 2.5rem;
+    }
+
+    div.info p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 812px) and (max-height: 414px) {
+    section.contact div.image {
+        height: 50vh;
+        margin-top: 3vh;
+    }
+
+    div.info h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 720px) and (max-height: 540px) {
+
+    div.image h1 {
+        font-size: 4.5rem;
+    }
+
+    div.info h1 {
+        font-size: 2.2rem;
+    }
+
+    div.info p {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 667px) and (max-height: 414px) {
+
+    div.image h1 {
+        font-size: 4rem;
+    }
+
+    div.info p {
+        font-size: 1.6rem;
+    }
+}
+
+/* fold */
+@media (max-width: 653px) and (max-height: 300px) {
+    section.contact div.image {
+        height: 52vh;
+        margin-top: 1vh;
+    }
+
+    div.info .address {
+        top: .5%;
+    }
+
+    div.info .phone {
+        top: .5%;
+    }
+
+    div.info h1 {
+        font-size: 1.8rem;
+    }
+
+    div.info p {
+        font-size: 1.4rem;
+    }
+
+    div.phone p {
+        font-size: 1.6rem;
+    }
+
+}
+
+@media (max-width: 640px) and (max-height: 414px) {
+
+    div.info p {
+        font-size: 1.4rem;
+    }
+
+    div.phone p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 568px) and (max-height: 414px) {
+
+    div.image h1 {
+        font-size: 3rem;
+    }
+
+    div.info .address {
+        top: 5%;
+    }
+
+    div.info .phone {
+        top: 5%;
+    }
+
+    div.info h1 {
+        font-size: 1.9rem;
+    }
+
+}
+
+/* @media (max-width: 568px) and (max-height: 414px) {
+
+    section.contact div.image {
+        position: relative;
+        height: 50vh;
+        margin-top: 3vh;
+        background-image: url(../img/contact-us1.jpg);
+        background-repeat: no-repeat;
+        background-position: center 54%;
+    }
+
+    div.image h1 {
+        font-size: 3rem;
+    }
+
+    div.info .address {
+        top: 5%;
+        left: 15%;
+    }
+
+    div.info .phone {
+        top: 5%;
+        right: 15%;
+    }
+
+    div.info h1 {
+        font-size: 1.9rem;
+    }
+
+    div.info p {
+        font-size: 1.4rem;
+    }
+
+    div.phone p {
+        font-size: 1.6rem;
+    }
+} */
+
+@media (orientation: portrait) and (max-width: 1024px) {
+    section.contact div.image {
+        background-position: 28% 54%;
+    }
+
+    /* div.image h1 {
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        font-size: 8rem;
+        color: #222;
+        transform: scale(0);
+    }
+
+    div.image h1.active {
+        animation: appear 1s linear both;
+    } */
+
+}
+
+@media (orientation: portrait) and (max-width: 768px) {
+    div.info .address {
+        top: 15%;
+    }
+
+    div.info .phone {
+        top: 15%;
+    }
+
+    div.info h1 {
+        font-size: 5rem;
+    }
+
+    div.info p {
+        font-size: 2.5rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 540px) {
+    section.contact div.image {
+        background-position: 80% 54%;
+    }
+
+    div.image h1 {
+        top: 70%;
+        font-size: 5rem;
+    }
+
+    div.info .address {
+        top: 20%;
+    }
+
+    div.info .phone {
+        top: 20%;
+    }
+
+    div.info h1 {
+        font-size: 3rem;
+    }
+
+    div.info p {
+        font-size: 1.8rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 414px) {
+    section.contact div.image {
+        background-position: 60% 54%;
+    }
+
+    div.image h1 {
+        top: 70%;
+        font-size: 5rem;
+    }
+
+    div.info .address {
+        top: 21%;
+        left: 5%;
+        width: 40vw;
+    }
+
+
+    div.info .phone {
+        top: 21%;
+        right: 5%;
+        width: 40vw;
+    }
+
+}
+
+@media (orientation: portrait) and (max-width: 375px) {
+
+    div.info .address {
+        top: 20%;
+    }
+
+    div.info .phone {
+        top: 20%;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 360px) {
+    section.contact div.image {
+        background-position: 58% 54%;
+    }
+
+    div.image h1 {
+        top: 64%;
+        font-size: 3.9rem;
+    }
+
+    div.info .phone {
+        top: 21%;
+        right: .5%;
+        width: 45vw;
+    }
+
+    div.info h1 {
+        font-size: 2rem;
+    }
+
+    div.info p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 300px) {
+    section.contact div.image {
+        background-position: 60% 54%;
+    }
+}
